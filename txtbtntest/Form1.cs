@@ -15,6 +15,7 @@ namespace txtbtntest
         public Form1()
         {
             InitializeComponent();
+            button1.Text = "1";
         }
 
         private void button1_Click(object sender, EventArgs e)
