@@ -19,7 +19,7 @@ namespace txtbtntest
 
         private void button1_Click(object sender, EventArgs e)
         {
-            button1.Text = textBox1.Text;
+            button1.Text = null;
         }
     }
 }
