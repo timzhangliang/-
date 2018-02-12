@@ -79,6 +79,7 @@ namespace txtbtntest
         public void Old()
         {
             textBox1.Text = "111";
+            textBox1.Text = "222";
         }
         public void New() { }
 
