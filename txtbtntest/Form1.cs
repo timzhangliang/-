@@ -53,18 +53,31 @@ namespace txtbtntest
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            Thread.Sleep(100);
-            PostMessage(this.Handle, USER + 1, 168, 51898);
-            System.Windows.Forms.TextBox tb2 = textBox1;
-            tb2.Text = "1111";
+            //Thread.Sleep(100);
+            //PostMessage(this.Handle, USER + 1, 168, 51898);
+            //System.Windows.Forms.TextBox tb2 = textBox1;
+            //tb2.Text = "1111";
+            DataTable dt=new DataTable();
+            dt = null;
+            dt=new DataTable();
+            var m = dt.Rows.Count;
+            if (dt.Rows.Count > 0) textBox1.Text = dt.Rows.Count.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //string str = "111";
-            // textBox1.Text=str.Substring(0,6);
-            // Log();
-            Old();
+           // //string str = "111";
+           // // textBox1.Text=str.Substring(0,6);
+           // // Log();
+           // // Old();
+           // DataTable dt = new DataTable();
+           //dt = null;
+           // dt=new DataTable();
+           //var m = dt.Rows.Count;
+            
+           // if (dt.Rows.Count > 0) textBox1.Text = "222";
+            textBox1.Text = "1";
+
         }
 
         public void Log([CallerLineNumber] int line = -1,
