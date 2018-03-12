@@ -15,10 +15,24 @@ namespace txtbtntest
 {
     public partial class Form1 : Form
     {
+        public delegate void setcallback(string str);
         public const int USER = 0x0400;//用户自定义消息的开始数值
+        public Thread th;
+        public setcallback settxt;
+        
 
         [DllImport("user32.dll")]
         public static extern void PostMessage(IntPtr hWnd, int msg, int wParam, int lParam);
+
+        public void fun()
+        {
+            textBox1.Invoke(settxt,"123");
+        }
+
+        public void settxtfun(string str)
+        {
+            textBox1.Text = str;
+        }
 
         public Form1()
         {
@@ -57,27 +71,31 @@ namespace txtbtntest
             //PostMessage(this.Handle, USER + 1, 168, 51898);
             //System.Windows.Forms.TextBox tb2 = textBox1;
             //tb2.Text = "1111";
-            DataTable dt=new DataTable();
+            DataTable dt = new DataTable();
             dt = null;
-            dt=new DataTable();
+            dt = new DataTable();
             var m = dt.Rows.Count;
             if (dt.Rows.Count > 0) textBox1.Text = dt.Rows.Count.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           // //string str = "111";
-           // // textBox1.Text=str.Substring(0,6);
-           // // Log();
-           // // Old();
-           // DataTable dt = new DataTable();
-           //dt = null;
-           // dt=new DataTable();
-           //var m = dt.Rows.Count;
-            
-           // if (dt.Rows.Count > 0) textBox1.Text = "222";
-            textBox1.Text = "1";
-            textBox1.Text = "2";
+            //// //string str = "111";
+            //// // textBox1.Text=str.Substring(0,6);
+            //// // Log();
+            //// // Old();
+            //// DataTable dt = new DataTable();
+            ////dt = null;
+            //// dt=new DataTable();
+            ////var m = dt.Rows.Count;
+
+            //// if (dt.Rows.Count > 0) textBox1.Text = "222";
+            // textBox1.Text = "1";
+            // textBox1.Text = "2";
+            settxt=new setcallback(settxtfun);
+            th = new Thread(fun);
+            th.IsBackground = true;
+            th.Start();
 
         }
 
