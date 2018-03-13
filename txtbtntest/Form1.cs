@@ -80,22 +80,36 @@ namespace txtbtntest
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //// //string str = "111";
-            //// // textBox1.Text=str.Substring(0,6);
-            //// // Log();
-            //// // Old();
-            //// DataTable dt = new DataTable();
-            ////dt = null;
-            //// dt=new DataTable();
-            ////var m = dt.Rows.Count;
+            try
+            {
+                ////// //string str = "111";
+                ////// // textBox1.Text=str.Substring(0,6);
+                ////// // Log();
+                ////// // Old();
+                ////// DataTable dt = new DataTable();
+                //////dt = null;
+                ////// dt=new DataTable();
+                //////var m = dt.Rows.Count;
 
-            //// if (dt.Rows.Count > 0) textBox1.Text = "222";
-            // textBox1.Text = "1";
-            // textBox1.Text = "2";
-            settxt=new setcallback(settxtfun);
-            th = new Thread(fun);
-            th.IsBackground = true;
-            th.Start();
+                ////// if (dt.Rows.Count > 0) textBox1.Text = "222";
+                //// textBox1.Text = "1";
+                //// textBox1.Text = "2";
+                //settxt = new setcallback(settxtfun);
+                //th = new Thread(fun);
+                //th.IsBackground = true;
+                //th.Start();
+                //int i = 0;
+                //int j = 1/i;
+                textBox1.Text = "1";
+
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.StackTrace);
+            }
+           
+
 
         }
 
@@ -112,8 +126,25 @@ namespace txtbtntest
         {
             textBox1.Text = "111";
             textBox1.Text = "222";
+            textBox1.Text = "333";
+
         }
         public void New() { }
 
+        private void button1_TextChanged(object sender, EventArgs e)
+        {
+            //textBox1.Text = (Convert.ToInt32(textBox1.Text) + 1).ToString();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            Thread.Sleep(1000);
+            if (Convert.ToInt32(textBox1.Text)%2 == 0)
+                button1.BackColor = Color.Red;
+            else
+            {
+                button1.BackColor = Color.Green;
+            }
+        }
     }
 }
